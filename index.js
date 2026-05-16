@@ -94,6 +94,11 @@ let hasFraud = dailyTransactions.includes(fraudID);
 let fraudIndex = dailyTransactions.indexOf(fraudID);
 let lastThree = dailyTransactions.slice(-3);
 
+console.log("\n--- Question 3 Output ---");
+console.log("Has Fraud:", hasFraud);
+console.log("Fraud Index:", fraudIndex);
+console.log("Last Three Transactions:", lastThree);
+
 if (fraudIndex !== -1) {
     dailyTransactions.splice(fraudIndex, 1);
 }
