@@ -84,3 +84,20 @@ console.log("\n--- Question 2 Output ---");
 const testScores = [450, 750, 900, 800];
 console.log("Input Scores:", testScores);
 console.log("Processed Loans Output:", processLoans(testScores));
+// =========================================================================
+// QUESTION 3: FRAUD DETECTION & LEDGER AUDITING
+// =========================================================================
+let dailyTransactions = [1042, 8922, 3301, 5510, 7719, 9920];
+let fraudID = 5510;
+
+let hasFraud = dailyTransactions.includes(fraudID);
+let fraudIndex = dailyTransactions.indexOf(fraudID);
+let lastThree = dailyTransactions.slice(-3);
+
+if (fraudIndex !== -1) {
+    dailyTransactions.splice(fraudIndex, 1);
+}
+
+dailyTransactions.forEach(id => {
+    console.log(`Transaction ${id} cleared.`);
+});
