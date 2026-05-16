@@ -68,19 +68,75 @@ function processLoans(scores) {
     const severeRiskScore = scores.find(score => score < 500);
     const severeRiskIndex = scores.findIndex(score => score < 500);
 
-    return {
-        eligible,
-        adjustedScores,
-        totalRiskMetric,
-        hasPerfectScore,
-        allMeetMinimum,
-        severeRiskScore,
-        severeRiskIndex
+    return { 
+        eligible, 
+        adjustedScores, 
+        totalRiskMetric, 
+        hasPerfectScore, 
+        allMeetMinimum, 
+        severeRiskScore, 
+        severeRiskIndex 
     };
 }
 
-// --- TEST CODE TO RUN IN TERMINAL FOR QUESTION 2 ---
-console.log("\n--- Question 2 Output ---");
-const testScores = [450, 750, 900, 800];
-console.log("Input Scores:", testScores);
-console.log("Processed Loans Output:", processLoans(testScores));
+// =========================================================================
+// QUESTION 3: FRAUD DETECTION & LEDGER AUDITING
+// =========================================================================
+let dailyTransactions = [1042, 8922, 3301, 5510, 7719, 9920];
+let fraudID = 5510;
+
+let hasFraud = dailyTransactions.includes(fraudID);
+let fraudIndex = dailyTransactions.indexOf(fraudID);
+let lastThree = dailyTransactions.slice(-3);
+
+if (fraudIndex !== -1) {
+    dailyTransactions.splice(fraudIndex, 1);
+}
+
+dailyTransactions.forEach(id => {
+    console.log(`Transaction ${id} cleared.`);
+});
+
+// =========================================================================
+// QUESTION 4: BANK MERGERS & DATA CLEANUP
+// =========================================================================
+let branchA = ["Alice", "Bob"];
+let branchB = ["Charlie", "Diana"];
+
+let allCustomers = branchA.concat(branchB);
+
+let messyData = [["Eve", "Frank"], ["Grace"], ["Hank", "Ivy"]];
+let flattenedData = messyData.flat();
+let sortedAndReversed = flattenedData.sort().reverse();
+
+let welcomeBanner = allCustomers.join(" - ");
+let tellerWindows = new Array(5).fill("Closed");
+
+// =========================================================================
+// QUESTION 5: THE SECURITY & REPORTING SYSTEM
+// =========================================================================
+// Part A
+function validateBankPassword(password) {
+    const isLongEnough = password.length >= 8;
+    const doesNotContainPassword = !password.toLowerCase().includes("password");
+    const hasVowel = /[aeiou]/i.test(password);
+
+    return (isLongEnough && doesNotContainPassword && hasVowel) ? "Access Granted" : "Access Denied";
+}
+
+// Part B
+function generateYearlyReport(startYear, endYear) {
+    for (let year = startYear; year <= endYear; year++) {
+        // Leap year check
+        if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            console.log(`Year ${year} is a special audit year.`);
+        }
+
+        // FizzBuzz logic
+        if (year % 10 === 0) {
+            console.log(`${year} - Decade Anniversary`);
+        } else if (year % 5 === 0) {
+            console.log(`${year} - 5 Year Anniversary`);
+        }
+    }
+}
