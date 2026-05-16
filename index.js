@@ -101,3 +101,24 @@ if (fraudIndex !== -1) {
 dailyTransactions.forEach(id => {
     console.log(`Transaction ${id} cleared.`);
 });
+// =========================================================================
+// QUESTION 4: BANK MERGERS & DATA CLEANUP
+// =========================================================================
+let branchA = ["Alice", "Bob"];
+let branchB = ["Charlie", "Diana"];
+
+let allCustomers = branchA.concat(branchB);
+
+let messyData = [["Eve", "Frank"], ["Grace"], ["Hank", "Ivy"]];
+let flattenedData = messyData.flat();
+let sortedAndReversed = flattenedData.sort().reverse();
+
+let welcomeBanner = allCustomers.join(" - ");
+let tellerWindows = new Array(5).fill("Closed");
+// --- TEST CODE TO RUN IN TERMINAL FOR QUESTION 4 ---
+console.log("\n--- Question 4 Output ---");
+console.log("All Customers:", allCustomers);
+console.log("Flattened Data:", flattenedData);
+console.log("Sorted & Reversed:", sortedAndReversed);
+console.log("Welcome Banner:", welcomeBanner);
+console.log("Teller Windows:", tellerWindows);
