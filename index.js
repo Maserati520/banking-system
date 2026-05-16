@@ -122,3 +122,41 @@ console.log("Flattened Data:", flattenedData);
 console.log("Sorted & Reversed:", sortedAndReversed);
 console.log("Welcome Banner:", welcomeBanner);
 console.log("Teller Windows:", tellerWindows);
+// =========================================================================
+// QUESTION 5: THE SECURITY & REPORTING SYSTEM
+// =========================================================================
+// Part A
+function validateBankPassword(password) {
+    const isLongEnough = password.length >= 8;
+    const doesNotContainPassword = !password.toLowerCase().includes("password");
+    const hasVowel = /[aeiou]/i.test(password);
+
+    return (isLongEnough && doesNotContainPassword && hasVowel) ? "Access Granted" : "Access Denied";
+}
+
+// Part B
+function generateYearlyReport(startYear, endYear) {
+    for (let year = startYear; year <= endYear; year++) {
+        // Leap year check
+        if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            console.log(`Year ${year} is a special audit year.`);
+        }
+
+        // FizzBuzz logic
+        if (year % 10 === 0) {
+            console.log(`${year} - Decade Anniversary`);
+        } else if (year % 5 === 0) {
+            console.log(`${year} - 5 Year Anniversary`);
+        }
+    }
+}
+// --- TEST CODE TO RUN IN TERMINAL FOR QUESTION 5 ---
+console.log("\n--- Question 5 Output ---");
+
+// Part A Test
+console.log("Password 'bank123':", validateBankPassword("bank123")); // Should be Denied (No vowel)
+console.log("Password 'SecurePass7':", validateBankPassword("SecurePass7")); // Should be Granted
+
+// Part B Test (Year 2019 to 2026)
+console.log("\nGenerating Yearly Report (2019-2026):");
+generateYearlyReport(2019, 2026);
